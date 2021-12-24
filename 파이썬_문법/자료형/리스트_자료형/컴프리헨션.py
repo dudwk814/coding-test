@@ -12,7 +12,7 @@ print(array)
 n = 3
 m = 4
 array = [[0] * m for _ in range(n)]
-print(array)
+print(*array)
 
 # 19 * 19 바둑판 형태의 2차원 리스트 초기화
 array = [[0] * 19 for _ in range(19)]
