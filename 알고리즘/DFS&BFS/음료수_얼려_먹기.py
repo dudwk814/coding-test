@@ -1,41 +1,39 @@
-# N, M을 공백으로 구분하여 입력받기
+# n, m을 공백으로 구분하여 입력받음
 n, m = map(int, input().split())
 
-# 2차원 리스트의 맵 정보 입력받기
+# 전체 맵 정보를 리스트로 받음 (2차원 리스트)
 graph = []
 for i in range(n):
     graph.append(list(map(int, input())))
 
-print(graph)
 
-# DFS로 특정한 노드를 방문한 뒤에 연결된 모든 노드들도 방문
-
-
+# DFS로 특정한 노드를 방문한 뒤에 연결된 모든 노드들 방문처리
 def dfs(x, y):
-    # 주어진 범위를 벗어나는 경우 즉시 종료
+
     if x <= -1 or x >= n or y <= -1 or y >= m:
         return False
 
-    # 현재 노드를 아직 방문하지 않았다면
+    # 파라미터로 입력받은 좌표가 아직 방문하지 않은 노드라면 방문처리
     if graph[x][y] == 0:
-        # 현재 노드를 방문 처리
         graph[x][y] = 1
 
-        # 상, 하, 좌, 우의 위치 모두 재귀적으로 호출
-        dfs(x - 1, y)
-        dfs(x + 1, y)
-        dfs(x, y - 1)
-        dfs(x, y + 1)
-        return True
-    return False
+        # 상, 하, 좌, 우 네 방향 모두 dfs 메서드를 이용해서 빈 노드를 탐색
+        dfs(x - 1, y)  # 상
+        dfs(x + 1, y)  # 하
+        dfs(x, y - 1)  # 좌
+        dfs(x, y + 1)  # 우
+
+        return True  # 현재 방문 좌표의 값이 0이면 True
+    return False    # 현재 방문 좌표의 값이 1이면 패스
 
 
-# 모든 노드(위치)에 대하여 음료수 채우기
-result = 0
+result = 0  # 아이스크림이 될 수 있는 횟수
+
+# 모든 노드를 돌면서 dfs를 수행하고 리턴 값이 True라면 Result값 증가
 for i in range(n):
     for j in range(m):
-        # 현재 위치에서 DFS 수행
         if dfs(i, j) == True:
             result += 1
+
 
 print(result)
