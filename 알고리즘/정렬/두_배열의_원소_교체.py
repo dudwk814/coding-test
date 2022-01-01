@@ -9,7 +9,9 @@ a = sorted(array1)
 b = sorted(array2, reverse=True)
 
 for i in range(k):
-    if a[i] < b[i]: # a배열에서 가장 작은 값이 b배열에서 가장 큰 값보다 작다면
-        a[i], b[i] = b[i], a[i] # 스왑
+    if a[i] < b[i]:  # a배열에서 가장 작은 값이 b배열에서 가장 큰 값보다 작다면
+        a[i], b[i] = b[i], a[i]  # 스왑
+    else:
+        break
 
 print(sum(a))
