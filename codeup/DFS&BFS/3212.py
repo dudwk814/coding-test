@@ -21,7 +21,6 @@ for i in range(e):
 def topology_sort():
     result = []  # 위상 정렬 수행 결과를 담을 리스트
     q = deque()
-    priority = 1e9
 
     # 첫 단계는 진입차수가 0인 노드를 큐에 삽입
     for i in range(1, v + 1):
@@ -30,10 +29,9 @@ def topology_sort():
 
     # 큐가 빌 때까지 반복
     while q:
-
-        for i in q:
-            priority = min(priority, i)
-
+        q = list(q)
+        q.sort()
+        q = deque(q)
         now = q.popleft()  # 큐에서 원소 pop
         result.append(now)  # 결과 리스트에 삽입
 
