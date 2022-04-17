@@ -1,3 +1,4 @@
+
 import sys
 n = int(input())
 t = list(map(int, sys.stdin.readline().split()))
