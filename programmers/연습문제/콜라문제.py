@@ -3,10 +3,14 @@ def solution(a, b, n):
     count = 0
 
     while True:
+
+        if n <= 1:
+            break
+
         if n // a > 0:
             answer += (n // a) * b
             count = n % a
-            n = (n // a) + count
+            n = (n // a) * b + count
         else:
             break
     return answer
