@@ -11,6 +11,5 @@ for i in range(n):
 
     for j in range(len(score) - 1):
         gap = max(gap, score[j] - score[j + 1])
-
     print("Class", i + 1)
     print(f"Max {max_score}, Min {min_score}, Largest gap {gap}")
