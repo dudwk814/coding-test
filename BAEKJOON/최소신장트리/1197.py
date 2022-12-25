@@ -21,7 +21,6 @@ def union_parent(parent, a, b):
 
 v, e = map(int, sys.stdin.readline().split())
 parent = [0] * (v + 1)
-
 edges = []
 result = 0
 
