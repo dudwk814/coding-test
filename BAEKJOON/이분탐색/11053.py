@@ -3,7 +3,6 @@ import sys
 n = int(input())
 t = list(map(int, sys.stdin.readline().split()))
 
-
 L = [t[0]]
 for i in range(1, n):
     if t[i] > L[-1]:
