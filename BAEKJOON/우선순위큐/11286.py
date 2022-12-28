@@ -2,7 +2,6 @@ import heapq
 import sys
 
 n = int(sys.stdin.readline())
-
 d = []
 array = []
 for i in range(n):
